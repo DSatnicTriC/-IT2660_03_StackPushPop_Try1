@@ -25,9 +25,15 @@ public class DSatnicStack {
 	}
 	
 	public int Pop() throws Exception {
-		if (this.myStack.length == 0) {
+		if (this.myStack == null || this.myStack.length == 0) {
 			throw new Exception("Out of pops!");
-		}		
+		}
+		
+		if (this.myStack.length == 1) {
+			var poppedValue = this.myStack[0];
+			this.myStack = null;
+			return poppedValue;
+		}
 		
 		return this.PopLogic();
 	}
@@ -50,9 +56,9 @@ public class DSatnicStack {
 	
 	private int PopLogic() {
 		var poppedValue = this.myStack[myStack.length - 1];
-		var newArray = new int[this.myStack.length + 1];
+		var newArray = new int[this.myStack.length - 1];
 
-		for (int i = 0; i < myStack.length - 1; i++) {
+		for (int i = 0; i < newArray.length; i++) {
 			newArray[i] = this.myStack[i];
 		}
 
