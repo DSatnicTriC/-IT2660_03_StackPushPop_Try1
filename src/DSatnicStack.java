@@ -1,6 +1,6 @@
 public class DSatnicStack {
 	private int[] myStack;
-	
+
 	public void SeeStack() {
 		System.out.println("................");
 		if (this.myStack == null) {
@@ -13,7 +13,7 @@ public class DSatnicStack {
 		}
 		System.out.println("................");
 	}
-	
+
 	public void Push(int value) {
 		if (this.myStack == null || this.myStack.length == 0) {
 			this.myStack = new int[1];
@@ -23,21 +23,21 @@ public class DSatnicStack {
 
 		this.PushLogic(value, this.myStack.length);
 	}
-	
+
 	public int Pop() throws Exception {
 		if (this.myStack == null || this.myStack.length == 0) {
 			throw new Exception("Out of pops!");
 		}
-		
+
 		if (this.myStack.length == 1) {
 			var poppedValue = this.myStack[0];
 			this.myStack = null;
 			return poppedValue;
 		}
-		
+
 		return this.PopLogic();
 	}
-	
+
 	private void PushLogic(int value, int position) {
 		var newArray = new int[this.myStack.length + 1];
 
@@ -53,7 +53,7 @@ public class DSatnicStack {
 
 		this.myStack = newArray;
 	}
-	
+
 	private int PopLogic() {
 		var poppedValue = this.myStack[myStack.length - 1];
 		var newArray = new int[this.myStack.length - 1];
@@ -63,7 +63,7 @@ public class DSatnicStack {
 		}
 
 		this.myStack = newArray;
-		
+
 		return poppedValue;
 	}
 }
