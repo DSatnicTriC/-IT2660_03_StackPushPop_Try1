@@ -24,6 +24,14 @@ public class DSatnicStack {
 		this.PushLogic(value, this.myStack.length);
 	}
 	
+	public int Pop() throws Exception {
+		if (this.myStack.length == 0) {
+			throw new Exception("Out of pops!");
+		}		
+		
+		return this.PopLogic();
+	}
+	
 	private void PushLogic(int value, int position) {
 		var newArray = new int[this.myStack.length + 1];
 
@@ -38,5 +46,18 @@ public class DSatnicStack {
 		}
 
 		this.myStack = newArray;
+	}
+	
+	private int PopLogic() {
+		var poppedValue = this.myStack[myStack.length - 1];
+		var newArray = new int[this.myStack.length + 1];
+
+		for (int i = 0; i < myStack.length - 1; i++) {
+			newArray[i] = this.myStack[i];
+		}
+
+		this.myStack = newArray;
+		
+		return poppedValue;
 	}
 }

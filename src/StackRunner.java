@@ -10,5 +10,19 @@ public class StackRunner {
 		}
 		
 		dSatnicStack.SeeStack();
+		
+		for (int i = 0; i < 4; i++) {
+			DSatnicPop();
+		}
+		
+	}
+	
+	private static void DSatnicPop() {
+		try {
+			var value = dSatnicStack.Pop();
+			System.out.println("Popped a: " + value);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 }
